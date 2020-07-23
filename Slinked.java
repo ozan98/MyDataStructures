@@ -5,7 +5,7 @@ public class Slinked<E> {
         private E element;
         private Node<E> next;
 
-        public Node(E e, Node<E> n){
+        public Node( E e, Node<E> n){
             element = e;
             next = n;
         }
@@ -49,6 +49,33 @@ public class Slinked<E> {
         if(isEmpty()) 
         return null;
         return tail.getElement();
+    }
+
+    public void addFirst( E e){
+        head = new Node<>(e, head.next);
+        if(size == 0)
+            head = tail; // special case where if size is 0 then tail and head will be pointing to the same node.
+        size++;
+    }
+    public void addLast(E e){
+        Node<E> newNode = new Node<E>(e, null);
+
+        if(isEmpty())
+            head = newNode;
+
+        tail.setNext(newNode);
+        tail = newNode;
+        size++;
+        
+    }
+
+    public void removeLast(){
+        Node<E> currentNode = head;
+        while(currentNode.getNext() == null){
+                currentNode = currentNode.getNext();
+        }
+        currentNode = null;
+
     }
 
 
