@@ -77,14 +77,5 @@ public class Slinked<E> {
         currentNode = null;
 
     }
-
-
-
-
-
-
-
-
-
 }
 
